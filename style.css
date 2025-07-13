@@ -1,44 +1,11 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fdf9f9;
-  color: #333;
+  background: #fdf9f9;
   padding: 20px;
+  color: #333;
 }
 h1 {
   text-align: center;
   color: #6e1f40;
   margin-bottom: 40px;
-}
-.ciclo {
-  margin-bottom: 40px;
-}
-.ciclo h2 {
-  color: #6e1f40;
-  border-bottom: 2px solid #6e1f40;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-}
-.cursos-ciclo {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-}
-.curso {
-  border: 2px solid #6e1f40;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #fff5f7;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-.curso.aprobado {
-  background-color: #d1a7b8;
-  text-decoration: line-through;
-}
-.curso.habilitado {
-  box-shadow: 0 0 8px 2px #6e1f40;
-}
-.curso:hover {
-  background-color: #fce6ed;
 }
