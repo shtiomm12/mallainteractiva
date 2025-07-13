@@ -11,23 +11,44 @@ h1 {
   margin: 30px 0;
 }
 
-#container {
+.grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 10px;
+  gap: 15px;
   padding: 20px;
   justify-content: center;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.ciclo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fce4ec;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 180px;
+}
+
+.ciclo h2 {
+  font-size: 16px;
+  color: #ad1457;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f06292;
+  padding-bottom: 5px;
 }
 
 .curso {
   background-color: #f8bbd0;
   border: 2px solid #f48fb1;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
-  transition: 0.3s;
-  opacity: 0.5;
+  opacity: 0.4;
+  transition: 0.3s ease;
+  text-align: left;
 }
 
 .curso:hover {
@@ -36,10 +57,12 @@ h1 {
 
 .curso.activo {
   opacity: 1;
+  cursor: pointer;
 }
 
 .curso.aprobado {
   background-color: #ce93d8 !important;
   border-color: #ab47bc;
   color: white;
+  text-decoration: line-through;
 }
