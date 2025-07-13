@@ -4,8 +4,21 @@ body {
   padding: 20px;
   color: #333;
 }
+
 h1 {
   text-align: center;
   color: #6e1f40;
   margin-bottom: 40px;
+}
+
+.node.aprobado rect {
+  fill: #a04565 !important;
+  stroke: #6e1f40 !important;
+}
+
+.node.habilitado rect {
+  stroke: #6e1f40 !important;
+  stroke-width: 4px !important;
+  filter: drop-shadow(0 0 5px #6e1f40);
+  cursor: pointer;
 }
