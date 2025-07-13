@@ -1,120 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Malla Curricular Visual</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, securityLevel: 'loose' });
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malla Curricular Interactiva</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<script src="script.js"></script>
-  <body>
+<body>
   <h1>Malla Curricular Interactiva</h1>
-  <pre class="mermaid">
-    graph LR
-      subgraph I CICLO
-        MD[Matemática Discreta] --> CI1(Cálculo I)
-        GA[Geometría Analítica] --> CI1
-        GA --> DDG[Dibujo y Diseño Gráfico]
-        CI[Ciudadanía Intercultural] --> IE[Introducción a la Economía]
-        II[Introducción a la Ingeniería] --> GG[Geología General]
-        II --> QG[Química General]
-        ADU[Accesibilidad y Diseño Universal] --> DI[Discapacidad e Inclusión]
-        AI[Actividades I] --> AII[Actividades II]
-        ING1[Inglés I] --> ING2[Inglés II]
-      end
+  <div id="malla-container"></div>
 
-      subgraph II CICLO
-        AL[Álgebra Lineal] --> FI[Física I]
-        CI1 --> CII[Cálculo II]
-        CI1 --> EP1[Estadística y Probabilidades I]
-        IE --> CG[Contabilidad General]
-        TP[Topografía] --> TA[Topografía Avanzada]
-        GG --> TM[Tecnología de los Materiales]
-        GG --> MSI[Mecánica de Suelos I]
-      end
-
-      subgraph III CICLO
-        QG --> TC[Tecnología del Concreto]
-        TM --> C1[Construcción I]
-        TM --> TC
-        TA --> CAMI[Caminos I]
-      end
-
-      subgraph IV CICLO
-        FI --> FII[Física II]
-        FI --> EST[Estática]
-        FI --> DYN[Dinámica]
-        CII --> ED[Ecuaciones Diferenciales]
-        C1 --> CAMI
-        C1 --> C2[Construcción II]
-        C1 --> EIA[Ecología e Impacto Ambiental]
-        C1 --> IELE[Instalaciones Eléctricas en Edificaciones]
-        DYN --> MF1[Mecánica de Fluidos I]
-        FII --> IELE
-        ED --> MF1
-      end
-
-      subgraph V CICLO
-        EST --> RM1[Resistencia de Materiales I]
-        RM1 --> RM2[Resistencia de Materiales II]
-        CAMI --> PV[Pavimentos]
-        C2 --> PPO[Presupuesto y Programación de Obra]
-        CG --> GF[Gestión Financiera]
-        EIA --> FEP[Formulación y Evaluación de Proyectos]
-        IELE --> PPO
-      end
-
-      subgraph VI CICLO
-        MF1 --> MF2[Mecánica de Fluidos II]
-        MF1 --> IS[Instalaciones Sanitarias]
-        PV --> MS2[Mecánica de suelos II]
-        MSI --> MS2
-        GF --> FEP
-        GF --> PPO
-        RM2 --> AE1[Análisis Estructural I]
-      end
-
-      subgraph VII CICLO
-        MF2 --> HID[Hidrología]
-        AE1 --> AE2[Análisis Estructural II]
-        AE1 --> CA1[Concreto Armado I]
-        FEP --> GPPMI[Gestión de Proyectos – PMI]
-        MS2 --> CA1
-        PPO --> IC[Ingeniería de Costos]
-      end
-
-      subgraph VIII CICLO
-        AE2 --> IAS[Ingeniería Antisísmica]
-        AE2 --> DAM[Diseño de acero y Madera]
-        CA1 --> CA2[Concreto Armado II]
-        GPPMI --> PFIC[Proyecto final de Ingeniería Civil]
-        GPPMI --> IVT[Ingeniería de Valuaciones y Tasaciones]
-        IC --> IVT
-        HID --> HIDL[Hidráulica]
-        IS --> HIDL
-      end
-
-      subgraph IX CICLO
-        CA2 --> PA[Puentes y obras de arte]
-        IAS --> TI[Trabajo de Investigación]
-        PFIC --> TI
-        HIDL --> AAA[Abastecimiento de Agua y Alcantarillado]
-        IVT --> ODEC[Organización y dirección de empresas constructoras]
-        DAM --> PA
-      end
-
-      subgraph X CICLO
-        AAA
-        TI
-        ODEC
-        PA
-        EM[Ética y Moral]
-        EL1[Electivo]
-        EL2[Electivo]
-      end
-  </pre>
+  <script src="script.js"></script>
 </body>
 </html>
