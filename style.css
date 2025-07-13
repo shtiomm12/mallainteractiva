@@ -1,50 +1,45 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff0f5;
+  font-family: Arial, sans-serif;
+  background: #ffe4f0;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   text-align: center;
 }
 
 h1 {
   color: #d81b60;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 
-#malla-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+#container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
   gap: 10px;
+  padding: 20px;
+  justify-content: center;
 }
 
 .curso {
   background-color: #f8bbd0;
   border: 2px solid #f48fb1;
-  color: #6a1b9a;
   border-radius: 10px;
   padding: 10px;
-  width: 180px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0.4;
-  pointer-events: none;
   font-size: 14px;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.5;
 }
 
 .curso:hover {
   background-color: #f48fb1;
 }
 
-.curso.aprobado {
-  background-color: #ce93d8;
-  border-color: #ab47bc;
-  color: #2e2e2e;
+.curso.activo {
   opacity: 1;
 }
 
-.curso.desbloqueado {
-  opacity: 1;
-  pointer-events: auto;
+.curso.aprobado {
+  background-color: #ce93d8 !important;
+  border-color: #ab47bc;
+  color: white;
 }
