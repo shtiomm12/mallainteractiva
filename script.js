@@ -1,121 +1,97 @@
-const curriculum = {
-  semesters: [
-    {
-      name: "Ciclo 1",
-      courses: [
-        { name: "Matemática Discreta", prerequisites: [] },
-        { name: "Geometría Analítica", prerequisites: [] },
-        { name: "Filosofía", prerequisites: [] },
-        { name: "Ciudadanía Intercultural", prerequisites: [] },
-        { name: "Introducción a la Ingeniería", prerequisites: [] },
-        { name: "Lenguaje", prerequisites: [] },
-        { name: "Métodos de Estudio", prerequisites: [] },
-        { name: "Accesibilidad y Diseño Universal", prerequisites: [] },
-        { name: "Actividades I", prerequisites: [] },
-        { name: "Inglés I", prerequisites: [] }
-      ]
-    },
-    {
-      name: "Ciclo 2",
-      courses: [
-        { name: "Álgebra Lineal", prerequisites: [] },
-        { name: "Cálculo I", prerequisites: ["Matemática Discreta", "Geometría Analítica"] },
-        { name: "Dibujo y Diseño Gráfico", prerequisites: ["Geometría Analítica"] },
-        { name: "Introducción a la Economía", prerequisites: ["Ciudadanía Intercultural"] },
-        { name: "Topografía", prerequisites: [] },
-        { name: "Geología General", prerequisites: ["Introducción a la Ingeniería"] },
-        { name: "Actividades II", prerequisites: ["Actividades I"] },
-        { name: "Inglés II", prerequisites: ["Inglés I"] }
-      ]
-    },
-    {
-      name: "Ciclo 3",
-      courses: [
-        { name: "Cálculo II", prerequisites: ["Cálculo I"] },
-        { name: "Física I", prerequisites: ["Álgebra Lineal", "Cálculo I"] },
-        { name: "Estadística y Probabilidades I", prerequisites: ["Cálculo I"] },
-        { name: "Química General", prerequisites: ["Introducción a la Ingeniería"] },
-        { name: "Tecnología de los Materiales", prerequisites: ["Geología General"] },
-        { name: "Topografía Avanzada", prerequisites: ["Topografía"] }
-      ]
-    },
-    {
-      name: "Ciclo 4",
-      courses: [
-        { name: "Física II", prerequisites: ["Física I"] },
-        { name: "Ecuaciones Diferenciales", prerequisites: ["Cálculo II"] },
-        { name: "Estática", prerequisites: ["Física I"] },
-        { name: "Construcción I", prerequisites: ["Tecnología de los Materiales"] },
-        { name: "Dinámica", prerequisites: ["Física I"] },
-        { name: "Tecnología del Concreto", prerequisites: ["Química General", "Tecnología de los Materiales"] }
-      ]
-    },
-    {
-      name: "Ciclo 5",
-      courses: [
-        { name: "Resistencia de Materiales I", prerequisites: ["Estática"] },
-        { name: "Caminos I", prerequisites: ["Topografía Avanzada", "Construcción I"] },
-        { name: "Construcción II", prerequisites: ["Construcción I"] },
-        { name: "Contabilidad General", prerequisites: ["Introducción a la Economía"] },
-        { name: "Ecología e Impacto Ambiental", prerequisites: ["Construcción I"] },
-        { name: "Instalaciones Eléctricas en Edificaciones", prerequisites: ["Física II", "Construcción I"] }
-      ]
-    },
-    {
-      name: "Ciclo 6",
-      courses: [
-        { name: "Mecánica de Fluidos I", prerequisites: ["Dinámica", "Ecuaciones Diferenciales"] },
-        { name: "Pavimentos", prerequisites: ["Caminos I"] },
-        { name: "Gestión Financiera", prerequisites: ["Contabilidad General"] },
-        { name: "Mecánica de Suelos I", prerequisites: ["Tecnología de los Materiales"] },
-        { name: "Resistencia de Materiales II", prerequisites: ["Resistencia de Materiales I"] }
-      ]
-    },
-    {
-      name: "Ciclo 7",
-      courses: [
-        { name: "Mecánica de Fluidos II", prerequisites: ["Mecánica de Fluidos I"] },
-        { name: "Análisis Estructural I", prerequisites: ["Resistencia de Materiales II"] },
-        { name: "Formulación y Evaluación de Proyectos", prerequisites: ["Ecología e Impacto Ambiental", "Gestión Financiera"] },
-        { name: "Mecánica de suelos II", prerequisites: ["Mecánica de Suelos I", "Pavimentos"] },
-        { name: "Presupuesto y Programación de Obra", prerequisites: ["Construcción II", "Instalaciones Eléctricas en Edificaciones", "Gestión Financiera"] },
-        { name: "Discapacidad e Inclusión", prerequisites: ["Accesibilidad y Diseño Universal"] }
-      ]
-    },
-    {
-      name: "Ciclo 8",
-      courses: [
-        { name: "Análisis Estructural II", prerequisites: ["Análisis Estructural I"] },
-        { name: "Concreto Armado I", prerequisites: ["Análisis Estructural I", "Mecánica de suelos II"] },
-        { name: "Gestión de Proyectos – PMI", prerequisites: ["Formulación y Evaluación de Proyectos"] },
-        { name: "Ingeniería de Costos", prerequisites: ["Presupuesto y Programación de Obra"] },
-        { name: "Hidrología", prerequisites: ["Mecánica de Fluidos II"] },
-        { name: "Instalaciones Sanitarias", prerequisites: ["Mecánica de Fluidos I"] }
-      ]
-    },
-    {
-      name: "Ciclo 9",
-      courses: [
-        { name: "Concreto Armado II", prerequisites: ["Concreto Armado I"] },
-        { name: "Ingeniería Antisísmica", prerequisites: ["Análisis Estructural II"] },
-        { name: "Proyecto final de Ingeniería Civil", prerequisites: ["Gestión de Proyectos – PMI"] },
-        { name: "Hidráulica", prerequisites: ["Hidrología", "Instalaciones Sanitarias"] },
-        { name: "Ingeniería de Valuaciones y Tasaciones", prerequisites: ["Gestión de Proyectos – PMI", "Ingeniería de Costos"] },
-        { name: "Diseño de acero y Madera", prerequisites: ["Análisis Estructural II"] },
-        { name: "Electivo", prerequisites: [] }
-      ]
-    },
-    {
-      name: "Ciclo 10",
-      courses: [
-        { name: "Abastecimiento de Agua y Alcantarillado", prerequisites: ["Hidráulica"] },
-        { name: "Trabajo de Investigación", prerequisites: ["Ingeniería Antisísmica", "Proyecto final de Ingeniería Civil"] },
-        { name: "Organización y dirección de empresas constructoras", prerequisites: ["Ingeniería de Valuaciones y Tasaciones"] },
-        { name: "Puentes y obras de arte", prerequisites: ["Concreto Armado II", "Diseño de acero y Madera"] },
-        { name: "Ética y Moral", prerequisites: [] },
-        { name: "Electivo", prerequisites: [] }
-      ]
-    }
-  ]
-};
+document.addEventListener("DOMContentLoaded", () => {
+  const cursos = [
+    { nombre: "Matemática Discreta", abre: ["Cálculo I"] },
+    { nombre: "Geometría Analítica", abre: ["Cálculo I", "Dibujo y Diseño Gráfico"] },
+    { nombre: "Filosofía" },
+    { nombre: "Ciudadanía Intercultural", abre: ["Introducción a la Economía"] },
+    { nombre: "Introducción a la Ingeniería", abre: ["Geología General", "Química General"] },
+    { nombre: "Lenguaje" },
+    { nombre: "Métodos de Estudio" },
+    { nombre: "Accesibilidad y Diseño Universal", abre: ["Discapacidad e Inclusión"] },
+    { nombre: "Actividades I", abre: ["Actividades II"] },
+    { nombre: "Inglés I", abre: ["Inglés II"] },
+    { nombre: "Álgebra Lineal", abre: ["Física I"] },
+    { nombre: "Cálculo I", abre: ["Cálculo II", "Física I", "Estadística y Probabilidades I"] },
+    { nombre: "Dibujo y Diseño Gráfico" },
+    { nombre: "Introducción a la Economía", abre: ["Contabilidad General"] },
+    { nombre: "Topografía", abre: ["Topografía Avanzada"] },
+    { nombre: "Geología General", abre: ["Tecnología de los Materiales", "Mecánica de Suelos I"] },
+    { nombre: "Actividades II" },
+    { nombre: "Inglés II" },
+    { nombre: "Cálculo II", abre: ["Ecuaciones Diferenciales"] },
+    { nombre: "Física I", abre: ["Física II", "Estática", "Dinámica"] },
+    { nombre: "Estadística y Probabilidades I" },
+    { nombre: "Química General", abre: ["Tecnología del Concreto"] },
+    { nombre: "Tecnología de los Materiales", abre: ["Construcción I", "Tecnología del Concreto"] },
+    { nombre: "Topografía Avanzada", abre: ["Caminos I"] },
+    { nombre: "Física II", abre: ["Instalaciones Eléctricas en Edificaciones"] },
+    { nombre: "Ecuaciones Diferenciales", abre: ["Mecánica de Fluidos I"] },
+    { nombre: "Estática", abre: ["Resistencia de Materiales I"] },
+    { nombre: "Construcción I", abre: ["Caminos I", "Construcción II", "Ecología e Impacto Ambiental", "Instalaciones Eléctricas en Edificaciones"] },
+    { nombre: "Dinámica", abre: ["Mecánica de Fluidos I"] },
+    { nombre: "Tecnología del Concreto" },
+    { nombre: "Resistencia de Materiales I", abre: ["Resistencia de Materiales II"] },
+    { nombre: "Caminos I", abre: ["Pavimentos"] },
+    { nombre: "Construcción II", abre: ["Presupuesto y Programación de Obra"] },
+    { nombre: "Contabilidad General", abre: ["Gestión Financiera"] },
+    { nombre: "Ecología e Impacto Ambiental", abre: ["Formulación y Evaluación de Proyectos"] },
+    { nombre: "Instalaciones Eléctricas en Edificaciones", abre: ["Presupuesto y Programación de Obra"] },
+    { nombre: "Mecánica de Fluidos I", abre: ["Mecánica de Fluidos II", "Instalaciones Sanitarias"] },
+    { nombre: "Pavimentos", abre: ["Mecánica de suelos II"] },
+    { nombre: "Gestión Financiera", abre: ["Formulación y Evaluación de Proyectos", "Presupuesto y Programación de Obra"] },
+    { nombre: "Mecánica de Suelos I", abre: ["Mecánica de suelos II"] },
+    { nombre: "Resistencia de Materiales II", abre: ["Análisis Estructural I"] },
+    { nombre: "Mecánica de Fluidos II", abre: ["Hidrología"] },
+    { nombre: "Análisis Estructural I", abre: ["Análisis Estructural II", "Concreto Armado I"] },
+    { nombre: "Formulación y Evaluación de Proyectos", abre: ["Gestión de Proyectos – PMI"] },
+    { nombre: "Mecánica de suelos II", abre: ["Concreto Armado I"] },
+    { nombre: "Presupuesto y Programación de Obra", abre: ["Ingeniería de Costos"] },
+    { nombre: "Discapacidad e Inclusión" },
+    { nombre: "Análisis Estructural II", abre: ["Ingeniería Antisísmica", "Diseño de acero y Madera"] },
+    { nombre: "Concreto Armado I", abre: ["Concreto Armado II"] },
+    { nombre: "Gestión de Proyectos – PMI", abre: ["Proyecto final de Ingeniería Civil", "Ingeniería de Valuaciones y Tasaciones"] },
+    { nombre: "Ingeniería de Costos", abre: ["Ingeniería de Valuaciones y Tasaciones"] },
+    { nombre: "Hidrología", abre: ["Hidráulica"] },
+    { nombre: "Instalaciones Sanitarias", abre: ["Hidráulica"] },
+    { nombre: "Concreto Armado II", abre: ["Puentes y obras de arte"] },
+    { nombre: "Ingeniería Antisísmica", abre: ["Trabajo de Investigación"] },
+    { nombre: "Proyecto final de Ingeniería Civil", abre: ["Trabajo de Investigación"] },
+    { nombre: "Hidráulica", abre: ["Abastecimiento de Agua y Alcantarillado"] },
+    { nombre: "Ingeniería de Valuaciones y Tasaciones", abre: ["Organización y dirección de empresas constructoras"] },
+    { nombre: "Diseño de acero y Madera", abre: ["Puentes y obras de arte"] },
+    { nombre: "Electivo" },
+    { nombre: "Abastecimiento de Agua y Alcantarillado" },
+    { nombre: "Trabajo de Investigación" },
+    { nombre: "Organización y dirección de empresas constructoras" },
+    { nombre: "Puentes y obras de arte" },
+    { nombre: "Ética y Moral" }
+  ];
+
+  const malla = document.getElementById("malla");
+  const estado = {};
+
+  cursos.forEach(curso => {
+    estado[curso.nombre] = false;
+    const div = document.createElement("div");
+    div.className = "curso";
+    div.textContent = curso.nombre;
+
+    div.addEventListener("click", () => {
+      estado[curso.nombre] = !estado[curso.nombre];
+      div.classList.toggle("aprobado");
+
+      if (curso.abre) {
+        curso.abre.forEach(nombre => {
+          const target = document.querySelector(`[data-nombre='${nombre}']`);
+          if (target && estado[curso.nombre]) {
+            target.classList.add("habilitado");
+          }
+        });
+      }
+    });
+
+    div.setAttribute("data-nombre", curso.nombre);
+    malla.appendChild(div);
+  });
+});
 
